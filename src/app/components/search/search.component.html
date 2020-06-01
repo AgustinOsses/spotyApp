@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">
+        <input #termino type="text" (keyup)=buscar(termino.value) class=" form-control " placeholder="Buscar artista">
+    </div>
+
+</div>
+
+<div *ngIf='error' class="alert alert-danger animated fadeIn mt-5">
+
+    <h3>Error</h3>
+    <p>Ingrese el artista que desea buscar</p>
+
+</div>
+
+
+<app-loading class="m-5" *ngIf='loadingSearch'></app-loading>
+
+<app-tarjetas *ngIf='!loadingSearch mostrarTarjeta' [items]='artistas'></app-tarjetas>
